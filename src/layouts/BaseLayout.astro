@@ -1,0 +1,29 @@
+---
+// Questo componente definisce il layout di base con un'area per il contenuto dinamico.
+import Navbar from '../components/Navbar.astro';
+import '../styles/global.css';
+
+const { title = "AI Consulenza", description = "Soluzioni AI personalizzate per il tuo business" } = Astro.props;
+---
+
+<html lang="it">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <link rel="icon" href="/favicon.ico" />
+    <link rel="stylesheet" href="src/styles/global.css" />
+    <title>{title}</title>
+  </head>
+  <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100">
+    <Navbar />
+    <main class="min-h-screen">
+      <slot />
+    </main>
+    <footer class="bg-gray-800 text-white py-6">
+      <div class="container mx-auto px-6 text-center">
+        <p>&copy; {new Date().getFullYear()} AI Consulenza. Tutti i diritti riservati.</p>
+      </div>
+    </footer>
+  </body>
+</html>

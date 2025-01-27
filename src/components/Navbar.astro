@@ -1,0 +1,160 @@
+<nav class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 shadow-md">
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <!-- Logo -->
+    <a href="/" class="text-2xl font-bold hover:text-indigo-500 transition">
+      AI Consulenza
+    </a>
+
+    <!-- Menu Links -->
+    <ul class="hidden md:flex space-x-6">
+      <li><a href="/" class="hover:text-indigo-500 transition">Home</a></li>
+      <li><a href="/services" class="hover:text-indigo-500 transition">Servizi</a></li>
+      <li><a href="/about" class="hover:text-indigo-500 transition">Chi Siamo</a></li>
+      <li><a href="/contact" class="hover:text-indigo-500 transition">Contatti</a></li>
+    </ul>
+
+    <!-- Actions -->
+    <div class="flex items-center space-x-4">
+      <!-- Language Selector -->
+      <div class="relative group">
+        <button 
+          class="flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-lg shadow hover:shadow-md transition">
+          <span id="selected-lang" class="text-sm">IT</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <ul 
+          id="lang-dropdown" 
+          class="absolute right-0 mt-2 w-20 bg-white dark:bg-gray-800 text-sm text-gray-800 dark:text-gray-200 rounded-lg shadow-lg hidden">
+          <li><button class="w-full text-left px-4 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-500" data-lang="IT">IT</button></li>
+          <li><button class="w-full text-left px-4 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-500" data-lang="EN">EN</button></li>
+        </ul>
+      </div>
+
+      <!-- Theme Toggle -->
+      <button 
+        id="theme-toggle" 
+        class="bg-gray-100 dark:bg-gray-800 p-2 rounded-lg shadow hover:shadow-md transition">
+        <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 15.5A5.5 5.5 0 1115.5 10 5.5 5.5 0 0110 15.5zm0 2A7.5 7.5 0 1017.5 10 7.5 7.5 0 0010 17.5z"></path>
+        </svg>
+        <svg id="theme-toggle-dark-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.293 13.707A8 8 0 116.707 3.293a8.1 8.1 0 0010.586 10.414z"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Hamburger Icon -->
+    <button
+      id="menu-toggle"
+      class="md:hidden focus:outline-none"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+  </div>
+
+  <!-- Mobile Menu -->
+  <ul
+    id="mobile-menu"
+    class="hidden absolute top-16 left-0 w-full bg-gray-50 dark:bg-gray-900 text-center space-y-4 py-4 shadow-md md:hidden"
+  >
+    <li><a href="/" class="block hover:text-indigo-500 transition">Home</a></li>
+    <li><a href="/services" class="block hover:text-indigo-500 transition">Servizi</a></li>
+    <li><a href="/about" class="block hover:text-indigo-500 transition">Chi Siamo</a></li>
+    <li><a href="/contact" class="block hover:text-indigo-500 transition">Contatti</a></li>
+  </ul>
+</nav>
+
+<script>
+  // Cambio tema
+  const themeToggle = document.getElementById('theme-toggle');
+  const lightIcon = document.getElementById('theme-toggle-light-icon');
+  const darkIcon = document.getElementById('theme-toggle-dark-icon');
+
+  // Verifica tema all'avvio
+  if (localStorage.getItem('theme') === 'dark' || 
+      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    document.documentElement.classList.add('dark');
+    lightIcon?.classList.remove('hidden');
+    darkIcon?.classList.add('hidden');
+  } else {
+    document.documentElement.classList.remove('dark');
+    lightIcon?.classList.add('hidden');
+    darkIcon?.classList.remove('hidden');
+  }
+
+  themeToggle?.addEventListener('click', () => {
+    document.documentElement.classList.toggle('dark');
+    if (document.documentElement.classList.contains('dark')) {
+      localStorage.setItem('theme', 'dark');
+      lightIcon?.classList.remove('hidden');
+      darkIcon?.classList.add('hidden');
+    } else {
+      localStorage.setItem('theme', 'light');
+      lightIcon?.classList.add('hidden');
+      darkIcon?.classList.remove('hidden');
+    }
+  });
+
+  // Selettore lingua
+  const langDropdown = document.getElementById('lang-dropdown');
+  const selectedLang = document.getElementById('selected-lang');
+  const langButtons = langDropdown?.querySelectorAll('button');
+
+  // Mostra/Nascondi dropdown
+  selectedLang?.parentElement?.addEventListener('click', () => {
+    langDropdown?.classList.toggle('hidden');
+  });
+
+  // Cambia lingua
+  langButtons?.forEach(button => {
+    button.addEventListener('click', () => {
+      const lang = button.getAttribute('data-lang');
+      selectedLang?.textContent ? lang : 'IT';
+      langDropdown?.classList.add('hidden');
+
+      // Ottieni il percorso corrente della pagina
+      const currentPath = window.location.pathname;
+
+      // Rimuovi il prefisso della lingua esistente (se presente)
+      const basePath = currentPath.replace(/^\/(en|it)\//, '/');
+
+      // Costruisci il nuovo percorso con la lingua selezionata
+      const newPath = lang === 'EN' ? `/en${basePath}` : basePath;
+
+      //aggiungi la lingua selezionata all'elemento
+      selectedLang?.textContent ?  lang : 'IT';
+
+      var sessionLang = lang ?? 'IT';
+      //aggiungo alla sessione la lingua selezionata
+      sessionStorage.setItem('lang', sessionLang);
+
+      // Reindirizza alla nuova URL
+      window.location.href = newPath;
+    });
+  });
+
+  // Verifica lingua all'avvio
+  document.addEventListener('DOMContentLoaded', () => {
+    const currentLang = window.location.pathname.startsWith('/en') ? 'EN' : 'IT';
+    selectedLang?.textContent ? currentLang : 'IT';
+  });
+
+  // Chiudi dropdown cliccando altrove
+  document.addEventListener('click', (e) => {
+    if (!selectedLang?.parentElement?.contains(e.target as Node)) {
+      langDropdown?.classList.add('hidden');
+    }
+  });
+
+  // Menu mobile
+  const menuToggle = document.getElementById('menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  menuToggle?.addEventListener('click', () => {
+    mobileMenu?.classList.toggle('hidden');
+  });
+</script>
