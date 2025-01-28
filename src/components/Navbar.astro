@@ -27,8 +27,8 @@
         <ul 
           id="lang-dropdown" 
           class="absolute right-0 mt-2 w-20 bg-white dark:bg-gray-800 text-sm text-gray-800 dark:text-gray-200 rounded-lg shadow-lg hidden">
-          <li><button class="w-full text-left px-4 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-500" data-lang="IT">IT</button></li>
-          <li><button class="w-full text-left px-4 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-500" data-lang="EN">EN</button></li>
+          <li><button class="w-full text-left px-4 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-500" data-lang="it">IT</button></li>
+          <li><button class="w-full text-left px-4 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-500" data-lang="en">EN</button></li>
         </ul>
       </div>
 
@@ -69,36 +69,6 @@
 </nav>
 
 <script>
-  // Cambio tema
-  const themeToggle = document.getElementById('theme-toggle');
-  const lightIcon = document.getElementById('theme-toggle-light-icon');
-  const darkIcon = document.getElementById('theme-toggle-dark-icon');
-
-  // Verifica tema all'avvio
-  if (localStorage.getItem('theme') === 'dark' || 
-      (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-    document.documentElement.classList.add('dark');
-    lightIcon?.classList.remove('hidden');
-    darkIcon?.classList.add('hidden');
-  } else {
-    document.documentElement.classList.remove('dark');
-    lightIcon?.classList.add('hidden');
-    darkIcon?.classList.remove('hidden');
-  }
-
-  themeToggle?.addEventListener('click', () => {
-    document.documentElement.classList.toggle('dark');
-    if (document.documentElement.classList.contains('dark')) {
-      localStorage.setItem('theme', 'dark');
-      lightIcon?.classList.remove('hidden');
-      darkIcon?.classList.add('hidden');
-    } else {
-      localStorage.setItem('theme', 'light');
-      lightIcon?.classList.add('hidden');
-      darkIcon?.classList.remove('hidden');
-    }
-  });
-
   // Selettore lingua
   const langDropdown = document.getElementById('lang-dropdown');
   const selectedLang = document.getElementById('selected-lang');
@@ -113,48 +83,58 @@
   langButtons?.forEach(button => {
     button.addEventListener('click', () => {
       const lang = button.getAttribute('data-lang');
-      selectedLang?.textContent ? lang : 'IT';
+      let url = updateLang(lang);
+
+      if (lang === 'it') {
+        selectedLang.textContent = 'IT';
+      } else {
+        selectedLang.textContent = 'EN';
+      }
+
       langDropdown?.classList.add('hidden');
 
-      // Ottieni il percorso corrente della pagina
-      const currentPath = window.location.pathname;
+      // Salva la lingua selezionata
+      localStorage.setItem('lang', lang);
 
-      // Rimuovi il prefisso della lingua esistente (se presente)
-      const basePath = currentPath.replace(/^\/(en|it)\//, '/');
+      // Aggiorna la lingua
+      if(url) {
+        window.location.href = url;
+      }
 
-      // Costruisci il nuovo percorso con la lingua selezionata
-      const newPath = lang === 'EN' ? `/en${basePath}` : basePath;
-
-      //aggiungi la lingua selezionata all'elemento
-      selectedLang?.textContent ?  lang : 'IT';
-
-      var sessionLang = lang ?? 'IT';
-      //aggiungo alla sessione la lingua selezionata
-      sessionStorage.setItem('lang', sessionLang);
-
-      // Reindirizza alla nuova URL
-      window.location.href = newPath;
     });
   });
 
-  // Verifica lingua all'avvio
+  //Al caricamento del documento, controlla se la lingua è stata salvata in localStorage
   document.addEventListener('DOMContentLoaded', () => {
-    const currentLang = window.location.pathname.startsWith('/en') ? 'EN' : 'IT';
-    selectedLang?.textContent ? currentLang : 'IT';
-  });
-
-  // Chiudi dropdown cliccando altrove
-  document.addEventListener('click', (e) => {
-    if (!selectedLang?.parentElement?.contains(e.target as Node)) {
-      langDropdown?.classList.add('hidden');
+    const lang = localStorage.getItem('lang');
+    console.log(lang);
+    if (lang) {
+      selectedLang.textContent = lang.toUpperCase();
+      let url = updateLang(lang);
+      let actualUrl = window.location.href;
+      console.log(url, actualUrl);
+      if(url !== actualUrl) {
+        window.location.href = url;
+      }
     }
   });
 
-  // Menu mobile
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
+  function updateLang(lang:string) {
 
-  menuToggle?.addEventListener('click', () => {
-    mobileMenu?.classList.toggle('hidden');
-  });
+    const notSelLang = lang === 'it' ? 'en' : 'it';
+    let url = window.location.href;
+    let newUrl = url;
+
+    // Aggiungi una barra finale all'URL se non presente
+    if (!url.endsWith('/')) {
+        url += '/';
+    }
+
+    // Verifica se l'URL contiene il segmento di lingua da sostituire
+    if (url.includes(`/${notSelLang}/`)) {
+        const newUrl = url.replace(`/${notSelLang}/`, `/${lang}/`);
+    }
+
+    return newUrl;
+  }
 </script>
