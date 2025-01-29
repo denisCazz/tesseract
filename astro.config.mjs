@@ -8,5 +8,6 @@ export default defineConfig({
   i18n: {
     locales: ["es", "it"],
     defaultLocale: "it",
-  }
+  },
+  base: "/tesseract/",
 })
