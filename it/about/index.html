@@ -1,0 +1,46 @@
+<!DOCTYPE html><html lang="it"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="description" content="Soluzioni AI personalizzate per il tuo business"><link rel="icon" href="/logo.svg"><link rel="stylesheet" href="src/styles/global.css"><title>Tesseract</title><link rel="stylesheet" href="/tesseract/_astro/about.BiAb3SRz.css"></head> <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100"> <nav class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 shadow-md"> <div class="container mx-auto px-6 py-4 flex justify-between items-center"> <!-- Logo --> <a href="/" class="text-2xl font-bold hover:text-indigo-500 transition">
+Tesseract
+</a> <!-- Menu Links --> <ul class="hidden md:flex space-x-6"> <li><a href="/" class="hover:text-indigo-500 transition">Home</a></li> <li><a href="/services" class="hover:text-indigo-500 transition">Servizi</a></li> <li><a href="/about" class="hover:text-indigo-500 transition">Chi Siamo</a></li> <li><a href="/contact" class="hover:text-indigo-500 transition">Contatti</a></li> </ul> <!-- Actions --> <!-- <div class="flex items-center space-x-4">
+      <div class="relative group">
+        <button 
+          class="flex items-center space-x-2 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-lg shadow hover:shadow-md transition">
+          <span id="selected-lang" class="text-sm">IT</span>
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <ul 
+          id="lang-dropdown" 
+          class="absolute right-0 mt-2 w-20 bg-white dark:bg-gray-800 text-sm text-gray-800 dark:text-gray-200 rounded-lg shadow-lg hidden">
+          <li><button class="w-full text-left px-4 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-500" data-lang="it">IT</button></li>
+          <li><button class="w-full text-left px-4 py-2 hover:bg-indigo-100 dark:hover:bg-indigo-500" data-lang="en">EN</button></li>
+        </ul>
+      </div>
+
+      <button 
+        id="theme-toggle" 
+        class="bg-gray-100 dark:bg-gray-800 p-2 rounded-lg shadow hover:shadow-md transition">
+        <svg id="theme-toggle-light-icon" class="w-6 h-6 hidden" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M10 15.5A5.5 5.5 0 1115.5 10 5.5 5.5 0 0110 15.5zm0 2A7.5 7.5 0 1017.5 10 7.5 7.5 0 0010 17.5z"></path>
+        </svg>
+        <svg id="theme-toggle-dark-icon" class="w-6 h-6" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.293 13.707A8 8 0 116.707 3.293a8.1 8.1 0 0010.586 10.414z"></path>
+        </svg>
+      </button>
+    </div> --> <!-- Hamburger Icon --> <button id="menu-toggle" class="md:hidden focus:outline-none"> <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"> <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path> </svg> </button> </div> <!-- Mobile Menu --> <ul id="mobile-menu" class="hidden absolute top-16 left-0 w-full bg-gray-50 dark:bg-gray-900 text-center space-y-4 py-4 shadow-md md:hidden"> <li><a href="/" class="block hover:text-indigo-500 transition">Home</a></li> <li><a href="/services" class="block hover:text-indigo-500 transition">Servizi</a></li> <li><a href="/about" class="block hover:text-indigo-500 transition">Chi Siamo</a></li> <li><a href="/contact" class="block hover:text-indigo-500 transition">Contatti</a></li> </ul> </nav> <script type="module">const o=document.getElementById("lang-dropdown"),l=document.getElementById("selected-lang"),c=o?.querySelectorAll("button");l?.parentElement?.addEventListener("click",()=>{o?.classList.toggle("hidden")});c?.forEach(t=>{t.addEventListener("click",()=>{const n=t.getAttribute("data-lang");let e=a(n);n==="it"?l.textContent="IT":l.textContent="EN",o?.classList.add("hidden"),localStorage.setItem("lang",n),e&&(window.location.href=e)})});document.addEventListener("DOMContentLoaded",()=>{const t=localStorage.getItem("lang");if(console.log(t),t){l.textContent=t.toUpperCase();let n=a(t),e=window.location.href;console.log(n,e),n!==e&&(window.location.href=n)}});function a(t){const n=t==="it"?"en":"it";let e=window.location.href,d=e;return e.endsWith("/")||(e+="/"),e.includes(`/${n}/`)&&e.replace(`/${n}/`,`/${t}/`),d}</script> <main class="min-h-screen">   <header class="bg-gradient-to-r from-blue-800 to-blue-900 text-white py-20"> <div class="container mx-auto px-6 text-center"> <h1 class="text-4xl font-bold mb-4 animate-fade-in">Chi Siamo</h1> <p class="text-lg md:text-xl text-gray-200 animate-fade-in">
+Scopri la nostra missione, i nostri valori e il nostro team.
+</p> </div> </header>  <main class="py-20 bg-gray-50"> <section class="container mx-auto px-6"> <!-- Mission Section --> <div class="grid gap-12 md:grid-cols-2 items-center"> <!-- Text Content --> <div> <h2 class="text-3xl font-bold text-indigo-900 mb-4 animate-fade-in">La Nostra Missione</h2> <p class="text-gray-700 leading-relaxed animate-fade-in">
+Siamo appassionati di tecnologia e innovazione. La nostra missione è aiutare le aziende a crescere sfruttando il potenziale dell'intelligenza artificiale. Crediamo in un futuro in cui la tecnologia migliora la vita e il lavoro di tutti.
+</p> </div> <!-- Image --> <div> <img src="/tesseract/_astro/aboutus.BiqsFT1Z_Z1euWer.webp" alt="Tesseract Logo" width="1024" height="1024" loading="lazy" decoding="async" class="w-100 h-100 ml-30 rounded-full object-cover shadow-2xl transform hover:rotate-6 transition-transform animate-fade-in"> </div> </div> <!-- Values Section --> <div class="py-16"> <h2 class="text-3xl font-bold text-indigo-900 mb-8 text-center animate-fade-in">I Nostri Valori</h2> <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3"> <!-- Value 1 --> <article class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow transform hover:-translate-y-2 animate-fade-in"> <h3 class="text-xl font-semibold mb-4 text-indigo-900 text-center">Innovazione</h3> <p class="text-gray-700 text-center">
+Siamo sempre alla ricerca di nuove idee per portare innovazione ai nostri clienti.
+</p> </article> <!-- Value 2 --> <article class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow transform hover:-translate-y-2 animate-fade-in"> <h3 class="text-xl font-semibold mb-4 text-indigo-900 text-center">Collaborazione</h3> <p class="text-gray-700 text-center">
+Lavoriamo a stretto contatto con i nostri clienti per creare soluzioni su misura.
+</p> </article> <!-- Value 3 --> <article class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow transform hover:-translate-y-2 animate-fade-in"> <h3 class="text-xl font-semibold mb-4 text-indigo-900 text-center">Affidabilità</h3> <p class="text-gray-700 text-center">
+Puoi contare su di noi per offrire sempre i migliori risultati possibili.
+</p> </article> </div> </div> </section> </main>  <section class="bg-gradient-to-r from-blue-800 to-blue-900 text-white py-20"> <div class="container mx-auto text-center px-6"> <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-fade-in">
+Vuoi Saperne di Più Su di Noi?
+</h2> <p class="text-lg text-gray-200 mb-8 animate-fade-in">
+Contattaci oggi stesso e scopri come possiamo aiutarti a raggiungere i tuoi obiettivi.
+</p> <a href="/contact" class="px-10 py-4 bg-white text-blue-800 rounded-lg shadow-lg hover:bg-gray-100 transition-all animate-bounce">
+Contattaci Ora
+</a> </div> </section>  </main> <footer class="bg-gray-800 text-white py-6"> <div class="container mx-auto px-6 text-center"> <p>&copy; 2025 Tesseract. Tutti i diritti riservati.</p> </div> </footer> </body></html>
