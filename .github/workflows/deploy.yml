@@ -1,12 +1,19 @@
 name: Deploy Astro to GitHub Pages
+
 on:
   push:
     branches:
-      - master  # Cambia se usi un altro branch per il codice sorgente
+      - master  # Quando pushi su master, il workflow si attiva
+
+permissions:
+  contents: write  # Permette il push su gh-pages
+  pages: write
+  id-token: write
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -27,4 +34,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_branch: gh-pages  # Pusha il contenuto nel branch gh-pages
           publish_dir: ./dist
