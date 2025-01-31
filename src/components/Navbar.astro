@@ -65,3 +65,30 @@
     <li><a href="/tesseract/contact" class="block hover:text-indigo-500 transition">Contatti</a></li>
   </ul>
 </nav>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const menuToggle = document.getElementById('menu-toggle');
+    const mobileMenu = document.getElementById('mobile-menu');
+
+    menuToggle.addEventListener('click', function() {
+      if (mobileMenu.classList.contains('hidden')) {
+        mobileMenu.classList.remove('hidden');
+      } else {
+        mobileMenu.classList.add('hidden');
+      }
+    });
+  });
+</script>
+
+<style>
+  /* Aggiungi queste regole CSS */
+  #mobile-menu {
+    transition: transform 0.2s ease-in-out;
+    transform: translateY(-100%);
+  }
+
+  #mobile-menu:not(.hidden) {
+    transform: translateY(0);
+  }
+</style>
