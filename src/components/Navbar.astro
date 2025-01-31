@@ -1,13 +1,13 @@
 <nav class="bg-gray-50 dark:bg-gray-900 text-gray-800 dark:text-gray-200 shadow-md">
   <div class="container mx-auto px-6 py-4 flex justify-between items-center">
     <!-- Logo -->
-    <a href="/tesseract" class="text-2xl font-bold hover:text-indigo-500 transition">
+    <a href="/tesseract/" class="text-2xl font-bold hover:text-indigo-500 transition">
       Tesseract
     </a>
 
     <!-- Menu Links -->
     <ul class="hidden md:flex space-x-6">
-      <li><a href="/tesseract" class="hover:text-indigo-500 transition">Home</a></li>
+      <li><a href="/tesseract/" class="hover:text-indigo-500 transition">Home</a></li>
       <li><a href="services" class="hover:text-indigo-500 transition">Servizi</a></li>
       <li><a href="about" class="hover:text-indigo-500 transition">Chi Siamo</a></li>
       <li><a href="contact" class="hover:text-indigo-500 transition">Contatti</a></li>
@@ -59,80 +59,9 @@
     id="mobile-menu"
     class="hidden absolute top-16 left-0 w-full bg-gray-50 dark:bg-gray-900 text-center space-y-4 py-4 shadow-md md:hidden"
   >
-    <li><a href="/tesseract" class="block hover:text-indigo-500 transition">Home</a></li>
+    <li><a href="/tesseract/" class="block hover:text-indigo-500 transition">Home</a></li>
     <li><a href="services" class="block hover:text-indigo-500 transition">Servizi</a></li>
     <li><a href="about" class="block hover:text-indigo-500 transition">Chi Siamo</a></li>
     <li><a href="contact" class="block hover:text-indigo-500 transition">Contatti</a></li>
   </ul>
 </nav>
-
-<script>
-  // Selettore lingua
-  const langDropdown = document.getElementById('lang-dropdown');
-  const selectedLang = document.getElementById('selected-lang');
-  const langButtons = langDropdown?.querySelectorAll('button');
-
-  // Mostra/Nascondi dropdown
-  selectedLang?.parentElement?.addEventListener('click', () => {
-    langDropdown?.classList.toggle('hidden');
-  });
-
-  // Cambia lingua
-  // langButtons?.forEach(button => {
-  //   button.addEventListener('click', () => {
-  //     const lang = button.getAttribute('data-lang');
-  //     let url = updateLang(lang);
-
-  //     if (lang === 'it') {
-  //       selectedLang.textContent = 'IT';
-  //     } else {
-  //       selectedLang.textContent = 'EN';
-  //     }
-
-  //     langDropdown?.classList.add('hidden');
-
-  //     // Salva la lingua selezionata
-  //     localStorage.setItem('lang', lang);
-
-  //     // Aggiorna la lingua
-  //     if(url) {
-  //       window.location.href = url;
-  //     }
-
-  //   });
-  // });
-
-  // //Al caricamento del documento, controlla se la lingua è stata salvata in localStorage
-  // document.addEventListener('DOMContentLoaded', () => {
-  //   const lang = localStorage.getItem('lang');
-  //   console.log(lang);
-  //   if (lang) {
-  //     selectedLang.textContent = lang.toUpperCase();
-  //     let url = updateLang(lang);
-  //     let actualUrl = window.location.href;
-  //     console.log(url, actualUrl);
-  //     if(url !== actualUrl) {
-  //       window.location.href = url;
-  //     }
-  //   }
-  // });
-
-  function updateLang(lang:string) {
-
-    const notSelLang = lang === 'it' ? 'en' : 'it';
-    let url = window.location.href;
-    let newUrl = url;
-
-    // Aggiungi una barra finale all'URL se non presente
-    if (!url.endsWith('/')) {
-        url += '/';
-    }
-
-    // Verifica se l'URL contiene il segmento di lingua da sostituire
-    if (url.includes(`/${notSelLang}/`)) {
-        const newUrl = url.replace(`/${notSelLang}/`, `/${lang}/`);
-    }
-
-    return newUrl;
-  }
-</script>
