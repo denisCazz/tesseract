@@ -9,10 +9,13 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/sitemap": "^3.2.1",
     "@tailwindcss/postcss": "^4.0.0",
     "@tailwindcss/vite": "^4.0.0",
     "astro": "^5.1.10",
-    "astro-i18next": "^1.0.0-beta.21"
+    "astro-i18next": "^1.0.0-beta.21",
+    "astro-robots-txt": "^1.0.0",
+    "astro-sitemap": "^1.0.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.20",
