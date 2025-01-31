@@ -5,7 +5,6 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  base: "/tesseract/",
   build: {
     site: 'https://deniscazz.github.io/tesseract',
   },
