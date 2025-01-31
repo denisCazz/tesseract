@@ -10,4 +10,7 @@ export default defineConfig({
     defaultLocale: "it",
   },
   base: "/tesseract/",
+  build: {
+    site: 'https://deniscazz.github.io/tesseract',
+  },
 })
