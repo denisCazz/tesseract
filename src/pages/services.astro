@@ -1,4 +1,73 @@
-<!--refresh su default it -->
-<script>
-  location.href = 'services';
-</script>
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout pageTitle="Servizi">
+  <!-- Hero Section -->
+  <header class="bg-gradient-to-r from-blue-800 to-indigo-900 text-white py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl md:text-5xl font-bold mb-4 animate-fade-in">
+        I Nostri Servizi
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 animate-fade-in">
+        Scopri come possiamo aiutarti a trasformare il tuo business con soluzioni innovative e su misura.
+      </p>
+    </div>
+  </header>
+
+  <!-- Services Section -->
+  <main class="py-20 bg-gray-50">
+    <section class="container mx-auto px-6">
+      <h2 class="text-3xl md:text-4xl font-bold text-blue-900 mb-12 text-center animate-fade-in">
+        Cosa Offriamo
+      </h2>
+      <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- Service 1 -->
+        <article class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow transform hover:-translate-y-2">
+          <div class="text-blue-800 mb-4">
+            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"></path></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-blue-900 text-center">Consulenza Strategica</h3>
+          <p class="text-gray-700 text-center">
+            Analizziamo le tue esigenze e ti offriamo una strategia su misura per raggiungere i tuoi obiettivi.
+          </p>
+        </article>
+        <!-- Service 2 -->
+        <article class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow transform hover:-translate-y-2">
+          <div class="text-blue-800 mb-4">
+            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-blue-900 text-center">Implementazione AI</h3>
+          <p class="text-gray-700 text-center">
+            Forniamo soluzioni AI personalizzate per migliorare la tua produttività e il tuo vantaggio competitivo.
+          </p>
+        </article>
+        <!-- Service 3 -->
+        <article class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow transform hover:-translate-y-2">
+          <div class="text-blue-800 mb-4">
+            <svg class="w-12 h-12 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+          <h3 class="text-xl font-semibold mb-4 text-blue-900 text-center">Supporto Tecnico</h3>
+          <p class="text-gray-700 text-center">
+            Il nostro team è a disposizione per risolvere i tuoi problemi e garantire un funzionamento ottimale.
+          </p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <!-- Call to Action -->
+  <section class="py-20 bg-gradient-to-r from-blue-800 to-indigo-900 text-white">
+    <div class="container mx-auto text-center px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-fade-in">
+        Pronto a Trasformare il Tuo Business?
+      </h2>
+      <p class="text-lg text-gray-200 mb-8 animate-fade-in">
+        Contattaci oggi stesso per una consulenza personalizzata e scopri come possiamo aiutarti.
+      </p>
+      <a href="/contact" class="px-10 py-4 bg-white text-blue-800 rounded-lg shadow-lg hover:bg-gray-100 transition-all animate-bounce">
+        Contattaci Ora
+      </a>
+    </div>
+  </section>
+</BaseLayout>

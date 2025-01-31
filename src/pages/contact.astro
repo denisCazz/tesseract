@@ -1,4 +1,38 @@
-<!--refresh su default it -->
-<script>
-  location.href = 'contact';
-</script>
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout pageTitle="Contatti">
+  <!-- Hero Section -->
+  <header class="bg-gradient-to-r from-blue-800 to-blue-900 text-white py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl font-bold mb-4 animate-fade-in">Contattaci</h1>
+      <p class="text-lg md:text-xl text-gray-200 animate-fade-in">
+        Siamo qui per rispondere a qualsiasi domanda. Non esitare a metterti in contatto con noi!
+      </p>
+    </div>
+  </header>
+
+  <!-- Contact Form Section -->
+  <main class="py-16 bg-gray-100">
+    <section class="container mx-auto px-6">
+      <h2 class="text-3xl font-bold text-gray-800 mb-10 text-center">Scrivici un Messaggio</h2>
+      <form class="max-w-lg mx-auto bg-white p-8 rounded-xl shadow-lg" action="https://formspree.io/f/xgvokgyb" method="post">
+        <div class="mb-6">
+          <label for="name" class="block text-blue-700 font-medium mb-2">Nome</label>
+          <input type="text" id="name" class="w-full px-4 py-3 border border-blue-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-400 text-blue-800" placeholder="Il tuo nome" name="name"/>
+        </div>
+        <div class="mb-6">
+          <label for="email" class="block text-blue-700 font-medium mb-2">Email</label>
+          <input type="email" id="email" class="w-full px-4 py-3 border border-blue-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-400 text-blue-800" placeholder="La tua email" name="email" />
+        </div>
+        <div class="mb-6">
+          <label for="message" class="block text-blue-700 font-medium mb-2">Messaggio</label>
+          <textarea id="message" rows="5" class="w-full px-4 py-3 border border-blue-300 rounded-lg focus:outline-none focus:ring focus:ring-blue-400 text-blue-800" placeholder="Il tuo messaggio" name="message"></textarea>
+        </div>
+        <button type="submit" class="w-full bg-blue-600 text-white py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all">
+          Invia Messaggio
+        </button>
+      </form>
+    </section>
+  </main>
+</BaseLayout>

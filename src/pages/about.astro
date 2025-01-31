@@ -1,4 +1,80 @@
-<!--refresh su default it -->
-<script>
-  location.href = 'about';
-</script>
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Image } from 'astro:assets';
+import aboutus from '../../../public/images/aboutus.webp';
+---
+
+<BaseLayout pageTitle="Chi Siamo">
+  <!-- Hero Section -->
+  <header class="bg-gradient-to-r from-blue-800 to-blue-900 text-white py-20">
+    <div class="container mx-auto px-6 text-center">
+      <h1 class="text-4xl font-bold mb-4 animate-fade-in">Chi Siamo</h1>
+      <p class="text-lg md:text-xl text-gray-200 animate-fade-in">
+        Scopri la nostra missione, i nostri valori e il nostro team.
+      </p>
+    </div>
+  </header>
+
+  <!-- About Content Section -->
+  <main class="py-20 bg-gray-50">
+    <section class="container mx-auto px-6">
+      <!-- Mission Section -->
+      <div class="grid gap-12 md:grid-cols-2 items-center">
+        <!-- Text Content -->
+        <div>
+          <h2 class="text-3xl font-bold text-indigo-900 mb-4 animate-fade-in">La Nostra Missione</h2>
+          <p class="text-gray-700 leading-relaxed animate-fade-in">
+            Siamo appassionati di tecnologia e innovazione. La nostra missione è aiutare le aziende a crescere sfruttando il potenziale dell'intelligenza artificiale. Crediamo in un futuro in cui la tecnologia migliora la vita e il lavoro di tutti.
+          </p>
+        </div>
+        <!-- Image -->
+        <div>
+          <Image src={aboutus} alt="Tesseract Logo" class="w-100 h-100 ml-30 rounded-full object-cover shadow-2xl transform hover:rotate-6 transition-transform animate-fade-in" />
+        </div>
+      </div>
+
+      <!-- Values Section -->
+      <div class="py-16">
+        <h2 class="text-3xl font-bold text-indigo-900 mb-8 text-center animate-fade-in">I Nostri Valori</h2>
+        <div class="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          <!-- Value 1 -->
+          <article class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow transform hover:-translate-y-2 animate-fade-in">
+            <h3 class="text-xl font-semibold mb-4 text-indigo-900 text-center">Innovazione</h3>
+            <p class="text-gray-700 text-center">
+              Siamo sempre alla ricerca di nuove idee per portare innovazione ai nostri clienti.
+            </p>
+          </article>
+          <!-- Value 2 -->
+          <article class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow transform hover:-translate-y-2 animate-fade-in">
+            <h3 class="text-xl font-semibold mb-4 text-indigo-900 text-center">Collaborazione</h3>
+            <p class="text-gray-700 text-center">
+              Lavoriamo a stretto contatto con i nostri clienti per creare soluzioni su misura.
+            </p>
+          </article>
+          <!-- Value 3 -->
+          <article class="bg-white p-8 rounded-lg shadow-lg hover:shadow-xl transition-shadow transform hover:-translate-y-2 animate-fade-in">
+            <h3 class="text-xl font-semibold mb-4 text-indigo-900 text-center">Affidabilità</h3>
+            <p class="text-gray-700 text-center">
+              Puoi contare su di noi per offrire sempre i migliori risultati possibili.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Call to Action -->
+  <section class="bg-gradient-to-r from-blue-800 to-blue-900 text-white py-20">
+    <div class="container mx-auto text-center px-6">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 animate-fade-in">
+        Vuoi Saperne di Più Su di Noi?
+      </h2>
+      <p class="text-lg text-gray-200 mb-8 animate-fade-in">
+        Contattaci oggi stesso e scopri come possiamo aiutarti a raggiungere i tuoi obiettivi.
+      </p>
+      <a href="/contact" class="px-10 py-4 bg-white text-blue-800 rounded-lg shadow-lg hover:bg-gray-100 transition-all animate-bounce">
+        Contattaci Ora
+      </a>
+    </div>
+  </section>
+</BaseLayout>
