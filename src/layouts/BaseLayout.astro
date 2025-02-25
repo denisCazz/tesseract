@@ -1,7 +1,6 @@
 ---
 // Questo componente definisce il layout di base con un'area per il contenuto dinamico.
 import Navbar from '../components/Navbar.astro';
-import '../styles/global.css';
 
 const { title = "Tesseract", description = "Soluzioni AI personalizzate per il tuo business" } = Astro.props;
 ---
@@ -11,7 +10,7 @@ const { title = "Tesseract", description = "Soluzioni AI personalizzate per il t
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content={description} />
-    <link rel="icon" href="images/logo.webp" />
+    <link rel="icon" href="logo.webp" />
     <link rel="stylesheet" href="src/styles/global.css" />
     <link rel="sitemap" href="/sitemap-index.xml" />
     <title>{title}</title>
